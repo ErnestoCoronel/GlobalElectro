@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// globalelectro.test
+// .com => welcome
+// .com => contact
+// .com => blog
+
+/*
+$posts = [
+        ['title' => 'First post'],
+        ['title' => 'Second post'],
+        ['title' => 'Third post'],
+        ['title' => 'Fourth post']
+    ];
+
+    return view('blog', ['posts' => $posts]);
+
+*/
+//Route::get('/', function () {return view('welcome');});
+
+
+
+
+Route::view('/','welcome')->name('welcome');
+Route::get('/blog', [PestController::class, 'index'])->name('blog');
+Route::view('/contacto','contac')->name('contacto');
+Route::view('/aboutme','about')->name('acercademifijo');
