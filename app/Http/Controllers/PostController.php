@@ -8,3 +8,5 @@ class PostController extends Controller
 {
     //
 }
+
+// para poder utilizar este controlador hay que corregir *ruta
