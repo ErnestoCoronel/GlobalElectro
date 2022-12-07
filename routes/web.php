@@ -42,8 +42,11 @@ Route::get('/blog', [PestController::class, 'index'])->name('posts.index');
 Route::get('/blog/create', [PestController::class, 'create'])->name('posts.create');
 Route::post('/blog', [PestController::class, 'store'])->name('posts.store');
 
-Route::get('/blog/{post}', [PestController::class, 'show'])->name('posts.show');
+Route::get('/blog/{post}/edit', [PestController::class, 'edit'])->name('posts.edit');
+Route::patch('/blog/{post}', [PestController::class, 'update'])->name('posts.update');
 
+
+Route::get('/blog/{post}', [PestController::class, 'show'])->name('posts.show');
 
 
 Route::view('/contacto','contac')->name('contacto');
