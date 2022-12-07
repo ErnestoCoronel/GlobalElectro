@@ -36,6 +36,16 @@ $posts = [
 
 
 Route::view('/','welcome')->name('welcome');
-Route::get('/blog', [PestController::class, 'index'])->name('blog');
+
+Route::get('/blog', [PestController::class, 'index'])->name('posts.index');
+
+Route::get('/blog/create', [PestController::class, 'create'])->name('posts.create');
+Route::post('/blog', [PestController::class, 'store'])->name('posts.store');
+
+Route::get('/blog/{post}', [PestController::class, 'show'])->name('posts.show');
+
+
+
 Route::view('/contacto','contac')->name('contacto');
+
 Route::view('/aboutme','about')->name('acercademifijo');
