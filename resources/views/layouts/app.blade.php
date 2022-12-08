@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> GLOBAL-ELETRO-WEB</title>
     <meta name='description'  content="@yield('meta-description', 'Default meta description')" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body>
 @include('partials.navigation')

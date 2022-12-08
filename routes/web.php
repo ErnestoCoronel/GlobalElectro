@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PestController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,7 +49,13 @@ Route::patch('/blog/{post}', [PestController::class, 'update'])->name('posts.upd
 
 Route::get('/blog/{post}', [PestController::class, 'show'])->name('posts.show');
 
+Route::delete('/blog/{post}', [Pestcontroller::class, 'destroy'])->name('posts.destroy');
 
 Route::view('/contacto','contac')->name('contacto');
 
 Route::view('/aboutme','about')->name('acercademifijo');
+
+// Route::resource('blog', PestController::class, [
+//        'names' => 'post',
+//        'parameters' => ['blog' => 'post']
+//]);

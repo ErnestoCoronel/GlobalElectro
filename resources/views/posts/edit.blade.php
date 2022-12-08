@@ -9,31 +9,13 @@
 
     <h1>Edit form</h1>
     
-   @dump($post->toArray())
+   
    
     <form action="{{ route('posts.update', $post)}}" method="POST">
         @csrf @method('PATCH')
         
-        <label>
+        @include('posts.form-fields')
 
-            Title <br>
-            <input name= "title" type ='text' value="{{ old('title', $post->Title)}}">
-            
-            @error('title')
-                <br>
-                <small style="color: red">{{$message}}</small>
-            @enderror
-            <br>
-        <label>
-
-            Body <br>
-            <textarea name= "Body" value="{{ old('body', $post->body)}}"></textarea>
-            @error('body')
-                <br>
-                <small style="color: red">{{$message}}</small>
-            @enderror
-
-        </label><br>
 
         <button type='submit'>Send</button><br>
     
