@@ -9,13 +9,20 @@
     @endguest
 
     @auth
-        <a href='#'>{{ Auth::user()->name}}</a>
+
+
+    <li><a href="{{ route('empresa') }}">Empresa </a></li>
+    <li><a href="{{ route('sucursal') }}">Sucursal </a></li>
+    <li><a href="{{ route('empleado') }}">Empleados </a></li>
+
+        <h1>{{ Auth::user()->name}}</h1>
         <form action="{{ route('logout')}}" method="POST">
             @csrf
 
             <button>Logout</button>
 
         </form>
+    
     @endauth
 </ul>
 

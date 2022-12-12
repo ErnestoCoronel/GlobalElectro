@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Arked extends Model
+class empleado extends Model
 {
     use HasFactory;
+
+
+    public function create()
+    {
+        return $this->hasOne('App\Models\Sucursal');
+    }
 }

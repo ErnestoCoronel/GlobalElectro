@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('arkeds', function (Blueprint $table) {
+        Schema::create('empresas', function (Blueprint $table) {
             $table->id();
+            $table->string('produccion');
+            $table->string('area');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arkeds');
+        Schema::dropIfExists('empresas');
     }
 };

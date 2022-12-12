@@ -68,6 +68,15 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('l
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
+
+Route::view('/empresa', 'entidad.empresa')->name('empresa');
+
+Route::view('/sucursal', 'entidad.sucursal')->name('sucursal');
+
+Route::view('/empleado', 'entidad.empleado')->name('empleado');
+
+Route::get('/entidad/empleado', [PestController::class, 'crearformularioempleado'])->name('crear');
+Route::post('/empleado', [PestController::class, 'store'])->name('empleado.store');
 // Route::resource('blog', PestController::class, [
 //        'names' => 'post',
 //        'parameters' => ['blog' => 'post']

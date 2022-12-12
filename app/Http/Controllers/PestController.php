@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
+use App\Models\empleado;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 
@@ -79,6 +80,19 @@ public function destroy(Post $post)
         return to_route('posts.index')->with('status','Post deleted');
         
     }
+
+
+
+// entidades
+
+public function crearformularioempleado()
+    {
+        return view('/empleado', ['empleado'=> new empleado]);
+
+    }
+
+
+
 
 
 }
