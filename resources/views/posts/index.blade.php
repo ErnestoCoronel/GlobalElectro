@@ -15,17 +15,17 @@
                 </a>
             
         </h2> &nbsp;
-
-        <a href="{{ route('posts.edit', $post)}}">Edit</a>
+        @auth
+            <a href="{{ route('posts.edit', $post)}}">Edit</a>
         
-        <form action="{{ route('posts.destroy', $post )}}" method="POST">
+            <form action="{{ route('posts.destroy', $post )}}" method="POST">
 
-            @csrf
-            @method('DELETE')
+                @csrf
+                @method('DELETE')
 
-            <button type='submit'>Delete</button>
-        </form>
-
+                <button type='submit'>Delete</button>
+            </form>
+        @endauth
         </div>
 
     @endforeach

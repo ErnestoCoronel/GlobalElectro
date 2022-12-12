@@ -8,9 +8,17 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Routing\Controllers\Middleware;
+use App\Http\Middleware\Authenticate;
 class PestController
 
 {
+
+public function __contruct(){
+
+        $this->Middleware('auth', ['only' => ['about']]);
+}
+
 public function index(){
         //TODO: Implement __invoke() method.
 
