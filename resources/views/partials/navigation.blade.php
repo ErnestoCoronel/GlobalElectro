@@ -7,41 +7,60 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="#">Nosotros</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ayuda</a>
+              </li>
+            @guest
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cuenta
+            </a>
+            <ul class="dropdown-menu">
             <li class="nav-item">
-              <a class="nav-link" href="#">Nosotros</a>
+            <a class="nav-link" href="{{ route('register') }}">Registrar </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Ayuda</a>
+            <a class="nav-link" href="{{ route('login') }}">Login </a>
             </li>
+
+            </ul>
+            </li>
+            @endguest 
+            @auth
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('posts.index') }}">Post </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('empresa') }}">Empresa </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('sucursal') }}">Sucursal </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('empleado') }}">Empleados </a>
+            </li>
+
             <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Cuenta
-          </a>
-          @guest
-          <ul class="dropdown-menu">
-          <li><a href="{{ route('register') }}">Registrar </a></li>
-          <li><a href="{{ route('login') }}">Login </a></li>
-          @endguest  
-          </ul>
-        </li>
-        @auth
-
-            <li><a href="{{ route('empresa') }}">Empresa </a></li>
-            <li><a href="{{ route('sucursal') }}">Sucursal </a></li>
-            <li><a href="{{ route('empleado') }}">Empleados </a></li>
-
-        <h1>{{ Auth::user()->name}}</h1>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ Auth::user()->name}}
+            </a>
+            <ul class="dropdown-menu">
             <form action="{{ route('logout')}}" method="POST">
-               
-            @csrf
-
-                <button>Logout</button>
-
+                
+                @csrf
+  
+                    <button class="btn btn-light">Logout</button>
+                     <button class="btn btn-light">Mi cuenta</button>
+  
             </form>
-    
-        @endauth
+
+
+            </ul>
+            </li>
+
+            @endauth
             </ul>
           </div>
       </div>
