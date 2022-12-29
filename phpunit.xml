@@ -30,4 +30,3 @@
     </php>
 </phpunit>
 
-@import './bootstrap/scss/bootstrap';
